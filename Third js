@@ -1,0 +1,27 @@
+// Check if the bullet has hit any of the zombies
+    for (let j = 0; j < zombies.length; j++) {
+      let zombie = zombies[j];
+      if (dist(bullet.x, bullet.y, zombie.x, zombie.y) < ZOMBIES_RADIUS) {
+        // Bullet has hit a zombie, remove the zombie and the bullet
+        zombies.splice(j, 1);
+        bullets.splice(i, 1);
+        i--; // Decrement the index to account for the removed bullet
+        break; // Exit the loop since the bullet has been used
+      }
+    }
+
+    // Check if the bullet has hit any of the gun images
+    for (let j = 0; j < gun.images.length; j++) {
+      let gunImage = gun.images[j];
+      let gunX = gun.gunX + j * gun.gunWidth;
+      let gunY = gun.gunY;
+      if (dist(bullet.x, bullet.y, gunX, gunY) < gun.gunWidth / 2) {
+        // Bullet has hit the gun image, remove the image and the bullet
+        gun.images.splice(j, 1);
+        bullets.splice(i, 1);
+        i--; // Decrement the index to account for the removed bullet
+        break; // Exit the loop since the bullet has been used
+      }
+    }
+  }
+}
