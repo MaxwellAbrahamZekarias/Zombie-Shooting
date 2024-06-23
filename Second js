@@ -1,0 +1,31 @@
+class Gun {
+  constructor(thename, thewidth, theheight, thesize, thecolor, theweight) {
+    this.name = thename;
+    this.width = thewidth;
+    this.height = theheight;
+    this.thesize = thesize;
+    this.color = thecolor;
+    this.weight = theweight;
+    this.x = random(100, 250);
+    this.y = random(200, 150);
+  }
+
+  display() {
+    push();
+    fill(this.color);
+    stroke(this.weight);
+    rectMode(CENTER);
+    rect(this.x, this.y, this.width, this.height);
+    pop();
+  }
+
+  jump() {
+    this.x += random(-5, -10);
+    this.y += random(-2, -8);
+  }
+}
+	
+	
+	
+	
+		
